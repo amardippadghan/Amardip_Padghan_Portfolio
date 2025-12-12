@@ -96,7 +96,7 @@ const Scene = () => {
       <color attach="background" args={['#050505']} />
       <fog attach="fog" args={['#050505', 5, 30]} />
 
-      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+      {/* <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} /> */}
 
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={1} color="#00f3ff" />
@@ -106,12 +106,12 @@ const Scene = () => {
       <MovingGrid />
       <FloatingCubes />
 
-      <EffectComposer>
+      {/* <EffectComposer>
         <Bloom luminanceThreshold={0.5} luminanceSmoothing={0.9} height={300} intensity={1.5} />
         <ChromaticAberration offset={[0.002, 0.002]} />
         <Vignette eskil={false} offset={0.1} darkness={1.1} />
-        {/* <Scanline density={2} opacity={0.05} /> */}
-      </EffectComposer>
+        <Scanline density={2} opacity={0.05} />
+      </EffectComposer> */}
     </>
   );
 };
