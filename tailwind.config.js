@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [import("daisyui")],
   daisyui: {
     themes: ["dark"], // Changed to dark to match cyberpunk theme better as a base
   },
