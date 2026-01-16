@@ -1,8 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 // ThemeContext.js
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const ThemeContext = createContext();
 
+// eslint-disable-next-line react/prop-types
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light"); // Set your default theme here
 
