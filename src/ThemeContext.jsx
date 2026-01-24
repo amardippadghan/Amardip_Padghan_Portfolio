@@ -1,5 +1,5 @@
 // ThemeContext.js
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const ThemeContext = createContext();
 
@@ -17,6 +17,7 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {

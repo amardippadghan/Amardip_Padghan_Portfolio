@@ -1,30 +1,6 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Stars, PerspectiveCamera, OrbitControls, Plane } from '@react-three/drei';
-import { EffectComposer, Bloom, ChromaticAberration, Scanline, Vignette } from '@react-three/postprocessing';
-import { BlendFunction } from 'postprocessing';
-import * as THREE from 'three';
-
-const Terrain = () => {
-    const planeRef = useRef();
-
-    useFrame((state) => {
-        if (planeRef.current) {
-             planeRef.current.position.z = (state.clock.getElapsedTime() * 5) % 20;
-        }
-    });
-
-    return (
-        <Plane ref={planeRef} args={[50, 50, 50, 50]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -2, 0]}>
-            <meshStandardMaterial
-                color="#000000"
-                wireframe
-                emissive="#ff00ff"
-                emissiveIntensity={0.5}
-            />
-        </Plane>
-    );
-};
+import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 
 const MovingGrid = () => {
     const gridRef = useRef();
