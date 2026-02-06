@@ -1,4 +1,3 @@
-import React from "react";
 // import CanvasContainer from "./components/CanvasContainer";
 import Overlay from "./components/Overlay";
 

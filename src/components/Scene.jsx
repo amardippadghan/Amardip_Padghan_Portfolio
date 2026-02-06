@@ -1,30 +1,6 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Stars, PerspectiveCamera, OrbitControls, Plane } from '@react-three/drei';
-import { EffectComposer, Bloom, ChromaticAberration, Scanline, Vignette } from '@react-three/postprocessing';
-import { BlendFunction } from 'postprocessing';
-import * as THREE from 'three';
-
-const Terrain = () => {
-    const planeRef = useRef();
-
-    useFrame((state) => {
-        if (planeRef.current) {
-             planeRef.current.position.z = (state.clock.getElapsedTime() * 5) % 20;
-        }
-    });
-
-    return (
-        <Plane ref={planeRef} args={[50, 50, 50, 50]} rotation={[-Math.PI / 2, 0, 0]} position={[0, -2, 0]}>
-            <meshStandardMaterial
-                color="#000000"
-                wireframe
-                emissive="#ff00ff"
-                emissiveIntensity={0.5}
-            />
-        </Plane>
-    );
-};
+import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 
 const MovingGrid = () => {
     const gridRef = useRef();
@@ -96,22 +72,12 @@ const Scene = () => {
       <color attach="background" args={['#050505']} />
       <fog attach="fog" args={['#050505', 5, 30]} />
 
-      {/* <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} /> */}
-
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={1} color="#00f3ff" />
       <pointLight position={[-10, 10, -10]} intensity={1} color="#ff00ff" />
 
-      {/* <Terrain /> */}
       <MovingGrid />
       <FloatingCubes />
-
-      {/* <EffectComposer>
-        <Bloom luminanceThreshold={0.5} luminanceSmoothing={0.9} height={300} intensity={1.5} />
-        <ChromaticAberration offset={[0.002, 0.002]} />
-        <Vignette eskil={false} offset={0.1} darkness={1.1} />
-        <Scanline density={2} opacity={0.05} />
-      </EffectComposer> */}
     </>
   );
 };
